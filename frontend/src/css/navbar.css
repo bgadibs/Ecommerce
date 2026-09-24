@@ -1,0 +1,708 @@
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+    width: 100%;
+    min-height: 70px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 10px 25px;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo {
+    flex-shrink: 0;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+
+    font-size: 28px;
+    font-weight: 800;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+}
+
+.logo-b {
+    color: #1976d2;
+}
+
+.logo-g {
+    color: #1976d2;
+}
+
+.logo-adi {
+    color: #1976d2;
+}
+
+
+/* =====================================================
+   LOCATION
+===================================================== */
+
+.navbar-location {
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    min-width: 180px;
+    max-width: 220px;
+
+    flex-shrink: 0;
+
+    padding: 3px 0;
+}
+
+
+/* Location icon */
+
+.navbar-location-icon {
+    font-size: 20px;
+
+    line-height: 1;
+}
+
+
+/* Location text */
+
+.navbar-location-details {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+}
+
+.navbar-location-details small {
+    font-size: 11px;
+
+    color: #777;
+
+    line-height: 14px;
+}
+
+.navbar-location-details strong {
+    font-size: 13px;
+
+    color: #222;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    max-width: 125px;
+}
+
+
+/* Change */
+
+.navbar-change-location {
+    border: none;
+
+    background: transparent;
+
+    color: #1976d2;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    padding: 0;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+}
+
+.navbar-change-location:hover {
+    color: #0d47a1;
+
+    text-decoration: underline;
+}
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+.search {
+    flex: 1;
+
+    min-width: 200px;
+    max-width: 650px;
+
+    height: 42px;
+
+    display: flex;
+
+    margin: 0 auto;
+
+    border: 1px solid #cfd4da;
+
+    border-radius: 7px;
+
+    overflow: hidden;
+
+    background: #fff;
+
+    transition: 0.2s;
+}
+
+.search:focus-within {
+    border-color: #1976d2;
+
+    box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.12);
+}
+
+
+/* Search input */
+
+.search input {
+    flex: 1;
+
+    width: 100%;
+
+    min-width: 0;
+
+    border: none;
+
+    outline: none;
+
+    padding: 0 14px;
+
+    font-size: 14px;
+
+    color: #222;
+
+    background: transparent;
+}
+
+.search input::placeholder {
+    color: #999;
+}
+
+
+/* Search button */
+
+.search button {
+    width: 48px;
+
+    border: none;
+
+    background: #1976d2;
+
+    color: white;
+
+    font-size: 18px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.search button:hover {
+    background: #125ca8;
+}
+
+
+/* =====================================================
+   NAV LINKS
+===================================================== */
+
+.nav-links {
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    flex-shrink: 0;
+}
+
+.nav-links a {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 9px 8px;
+
+    border-radius: 6px;
+
+    color: #333;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    transition: 0.2s;
+}
+
+.nav-links a:hover {
+    background: #f1f5f9;
+
+    color: #1976d2;
+}
+
+
+/* =====================================================
+   CART
+===================================================== */
+
+.cart-link {
+    position: relative;
+}
+
+
+/* Cart badge */
+
+.cart-badge {
+    position: absolute;
+
+    top: 1px;
+    right: 0;
+
+    min-width: 18px;
+    height: 18px;
+
+    padding: 0 5px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 20px;
+
+    background: #e53935;
+
+    color: white;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    line-height: 18px;
+}
+
+
+/* =====================================================
+   LOCATION OVERLAY
+===================================================== */
+
+.location-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    z-index: 2000;
+}
+
+
+/* =====================================================
+   LOCATION MODAL
+===================================================== */
+
+.location-modal {
+    width: 100%;
+
+    max-width: 430px;
+
+    background: white;
+
+    border-radius: 12px;
+
+    padding: 28px;
+
+    position: relative;
+
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.25);
+
+    animation: locationPopup 0.2s ease;
+}
+
+@keyframes locationPopup {
+    from {
+        opacity: 0;
+
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+
+/* =====================================================
+   CLOSE BUTTON
+===================================================== */
+
+.close-location {
+    position: absolute;
+
+    top: 14px;
+    right: 14px;
+
+    width: 32px;
+    height: 32px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #f3f4f6;
+
+    color: #555;
+
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+.close-location:hover {
+    background: #e5e7eb;
+
+    color: #111;
+}
+
+
+/* =====================================================
+   MODAL TITLE
+===================================================== */
+
+.location-modal h2 {
+    margin: 0 0 6px;
+
+    font-size: 22px;
+
+    color: #222;
+}
+
+.location-modal > p {
+    margin: 0 0 22px;
+
+    color: #777;
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   MODAL LABEL
+===================================================== */
+
+.location-modal label {
+    display: block;
+
+    margin: 14px 0 6px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    color: #333;
+}
+
+
+/* =====================================================
+   PIN INPUT
+===================================================== */
+
+.location-modal input,
+.location-modal textarea {
+    width: 100%;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 7px;
+
+    padding: 11px 12px;
+
+    font-size: 14px;
+
+    outline: none;
+
+    font-family: inherit;
+
+    box-sizing: border-box;
+
+    transition: 0.2s;
+}
+
+.location-modal input:focus,
+.location-modal textarea:focus {
+    border-color: #1976d2;
+
+    box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.1);
+}
+
+.location-modal textarea {
+    resize: vertical;
+
+    min-height: 90px;
+}
+
+
+/* =====================================================
+   LOCATION ERROR
+===================================================== */
+
+.location-error {
+    margin: 10px 0;
+
+    padding: 9px 10px;
+
+    border-radius: 6px;
+
+    background: #fff1f2;
+
+    color: #dc2626;
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   SAVE LOCATION
+===================================================== */
+
+.save-location {
+    width: 100%;
+
+    margin-top: 15px;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #1976d2;
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.save-location:hover {
+    background: #125ca8;
+}
+
+.save-location:disabled {
+    background: #9ca3af;
+
+    cursor: not-allowed;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1200px) {
+
+    .navbar {
+        gap: 12px;
+
+        padding: 10px 16px;
+    }
+
+    .navbar-location {
+        min-width: 160px;
+
+        max-width: 180px;
+    }
+
+    .nav-links {
+        gap: 2px;
+    }
+
+    .nav-links a {
+        padding: 8px 5px;
+
+        font-size: 12px;
+    }
+}
+
+
+/* =====================================================
+   SMALL TABLET
+===================================================== */
+
+@media (max-width: 1000px) {
+
+    .navbar {
+        flex-wrap: wrap;
+
+        min-height: auto;
+    }
+
+    .logo {
+        order: 1;
+    }
+
+    .navbar-location {
+        order: 2;
+    }
+
+    .search {
+        order: 3;
+
+        flex-basis: 100%;
+
+        max-width: none;
+
+        margin: 3px 0;
+    }
+
+    .nav-links {
+        order: 4;
+
+        width: 100%;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 10px 12px;
+
+        gap: 10px;
+    }
+
+    .logo a {
+        font-size: 24px;
+    }
+
+    .navbar-location {
+        margin-left: auto;
+
+        min-width: 0;
+
+        max-width: 150px;
+    }
+
+    .navbar-location-details strong {
+        max-width: 85px;
+    }
+
+    .navbar-location-details small {
+        font-size: 10px;
+    }
+
+    .navbar-change-location {
+        font-size: 11px;
+    }
+
+    .search {
+        height: 40px;
+    }
+
+    .nav-links {
+        justify-content: flex-start;
+
+        overflow-x: auto;
+
+        flex-wrap: nowrap;
+
+        width: 100%;
+
+        padding-bottom: 3px;
+    }
+
+    .nav-links a {
+        flex-shrink: 0;
+
+        font-size: 12px;
+
+        padding: 8px 7px;
+    }
+}
+
+
+/* =====================================================
+   VERY SMALL MOBILE
+===================================================== */
+
+@media (max-width: 400px) {
+
+    .navbar-location-details {
+        display: none;
+    }
+
+    .navbar-location {
+        max-width: 70px;
+    }
+
+    .navbar-change-location {
+        font-size: 11px;
+    }
+
+    .logo a {
+        font-size: 22px;
+    }
+}

@@ -1,0 +1,515 @@
+/* =========================================
+   SUPER ADMIN LOGIN PAGE
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+.super-login-page {
+    min-height: 100vh;
+    width: 100%;
+    background: #f4f7fb;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+}
+
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.super-login-container {
+    width: 100%;
+    max-width: 1100px;
+    min-height: 650px;
+
+    display: grid;
+    grid-template-columns: 48% 52%;
+
+    background: white;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 20px 50px rgba(15, 23, 42, 0.12);
+}
+
+
+/* =========================================
+   LEFT SIDE
+========================================= */
+
+.super-login-left {
+    background: linear-gradient(
+        145deg,
+        #1e3a8a,
+        #2563eb
+    );
+
+    color: white;
+
+    padding: 45px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* Decorative circles */
+
+.super-login-left::before {
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    top: -120px;
+    right: -100px;
+}
+
+
+.super-login-left::after {
+    content: "";
+
+    position: absolute;
+
+    width: 250px;
+    height: 250px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    bottom: -100px;
+    left: -100px;
+}
+
+
+/* =========================================
+   BRAND
+========================================= */
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    position: relative;
+    z-index: 2;
+}
+
+
+.brand-letter {
+    width: 50px;
+    height: 50px;
+
+    border-radius: 12px;
+
+    background: white;
+
+    color: #2563eb;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 26px;
+    font-weight: 800;
+}
+
+
+.brand-logo h1 {
+    margin: 0;
+
+    font-size: 28px;
+
+    font-weight: 800;
+}
+
+
+.brand-logo p {
+    margin: 2px 0 0;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    opacity: 0.8;
+}
+
+
+/* =========================================
+   LEFT CONTENT
+========================================= */
+
+.left-content {
+    position: relative;
+    z-index: 2;
+
+    margin-top: 120px;
+}
+
+
+.shield-icon {
+    width: 70px;
+    height: 70px;
+
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.15);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 32px;
+
+    margin-bottom: 25px;
+}
+
+
+.left-content h2 {
+    margin: 0 0 15px;
+
+    font-size: 34px;
+
+    font-weight: 700;
+}
+
+
+.left-content > p {
+    max-width: 420px;
+
+    margin: 0 0 30px;
+
+    line-height: 1.7;
+
+    font-size: 15px;
+
+    color: rgba(255, 255, 255, 0.85);
+}
+
+
+/* =========================================
+   SECURITY LIST
+========================================= */
+
+.security-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+
+.security-list div {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    font-size: 14px;
+
+    color: rgba(255, 255, 255, 0.9);
+}
+
+
+.security-list span {
+    width: 24px;
+    height: 24px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.15);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 13px;
+}
+
+
+/* =========================================
+   RIGHT SIDE
+========================================= */
+
+.super-login-right {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 50px;
+}
+
+
+.login-card {
+    width: 100%;
+    max-width: 420px;
+}
+
+
+/* =========================================
+   LOGIN ICON
+========================================= */
+
+.login-icon {
+    width: 65px;
+    height: 65px;
+
+    border-radius: 16px;
+
+    background: #eff6ff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 30px;
+
+    margin-bottom: 22px;
+}
+
+
+.login-card h2 {
+    margin: 0;
+
+    color: #111827;
+
+    font-size: 30px;
+
+    font-weight: 700;
+}
+
+
+.login-subtitle {
+    margin: 8px 0 30px;
+
+    color: #6b7280;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   ERROR
+========================================= */
+
+.login-error {
+    background: #fef2f2;
+
+    color: #dc2626;
+
+    border: 1px solid #fecaca;
+
+    border-radius: 8px;
+
+    padding: 12px 14px;
+
+    margin-bottom: 20px;
+
+    font-size: 13px;
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #374151;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+
+.form-group input {
+    width: 100%;
+
+    height: 50px;
+
+    padding: 0 15px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 9px;
+
+    outline: none;
+
+    font-size: 14px;
+
+    color: #111827;
+
+    background: white;
+
+    transition: all 0.2s ease;
+}
+
+
+.form-group input:focus {
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+
+.form-group input::placeholder {
+    color: #9ca3af;
+}
+
+
+/* =========================================
+   LOGIN BUTTON
+========================================= */
+
+.super-login-btn {
+    width: 100%;
+
+    height: 52px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #2563eb;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+
+    margin-top: 5px;
+}
+
+
+.super-login-btn:hover {
+    background: #1d4ed8;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 8px 20px rgba(37, 99, 235, 0.25);
+}
+
+
+.super-login-btn:disabled {
+    background: #93c5fd;
+
+    cursor: not-allowed;
+
+    transform: none;
+
+    box-shadow: none;
+}
+
+
+/* =========================================
+   BACK TO STORE
+========================================= */
+
+.back-store {
+    text-align: center;
+
+    margin-top: 25px;
+}
+
+
+.back-store button {
+    background: none;
+
+    border: none;
+
+    color: #6b7280;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition: color 0.2s ease;
+}
+
+
+.back-store button:hover {
+    color: #2563eb;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+
+    .super-login-container {
+        grid-template-columns: 1fr;
+    }
+
+    .super-login-left {
+        display: none;
+    }
+
+    .super-login-right {
+        min-height: 600px;
+
+        padding: 30px;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .super-login-page {
+        padding: 15px;
+    }
+
+    .super-login-container {
+        border-radius: 14px;
+    }
+
+    .super-login-right {
+        padding: 30px 20px;
+    }
+
+    .login-card h2 {
+        font-size: 25px;
+    }
+
+}
