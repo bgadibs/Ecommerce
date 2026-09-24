@@ -4,7 +4,6 @@ import { loginUser } from "../services/api";
 import "../css/login.css";
 
 import {
-  FaUser,
   FaLock,
   FaEye,
   FaEyeSlash,
@@ -40,38 +39,24 @@ function Login() {
 
       const response = await loginUser(form);
 
-      // Save token if your backend returns one
       if (response.data.token) {
-        localStorage.setItem(
-          "token",
-          response.data.token
-        );
+        localStorage.setItem("token", response.data.token);
       }
 
-      // Save user information if returned
       if (response.data.user) {
-        localStorage.setItem(
-          "user",
-          JSON.stringify(response.data.user)
-        );
+        localStorage.setItem("user", JSON.stringify(response.data.user));
       }
 
-      setMessage(
-        response.data.message || "Login successful!"
-      );
+      setMessage(response.data.message || "Login successful!");
 
       setTimeout(() => {
         navigate("/");
       }, 1000);
-
     } catch (error) {
       console.error(error);
-
       setMessage(
-        error.response?.data?.message ||
-          "Invalid email or password"
+        error.response?.data?.message || "Invalid email or password"
       );
-
     } finally {
       setLoading(false);
     }
@@ -82,169 +67,88 @@ function Login() {
 
       <div className="login-card">
 
-        {/* LEFT SIDE */}
-        <div className="login-info">
-
-          <div className="login-logo">
-            🛍️
-          </div>
-
-          <h1>BGADI</h1>
-
-          <h2>Welcome Back!</h2>
-
-          <p>
-            Login to your account and continue
-            shopping your favorite products.
-          </p>
-
-          <div className="login-benefits">
-
-            <div>✓ Discover amazing products</div>
-
-            <div>✓ Manage your orders</div>
-
-            <div>✓ Save your favorite products</div>
-
-            <div>✓ Secure and easy checkout</div>
-
-          </div>
-
+        <div className="login-brand">
+          <span className="login-brand-icon">🛒</span>
+          <span className="login-brand-name">BGadi</span>
         </div>
 
+        <h1 className="login-title">Welcome back</h1>
+        <p className="login-subtitle">
+          Sign in to your account to continue shopping
+        </p>
 
-        {/* RIGHT SIDE */}
-        <div className="login-form-container">
-
-          <div className="login-header">
-
-            <h2>Login</h2>
-
-            <p>
-              Enter your account details to continue
-            </p>
-
+        {message && (
+          <div
+            className={`login-message ${
+              message.toLowerCase().includes("success")
+                ? "success"
+                : "error"
+            }`}
+          >
+            {message}
           </div>
+        )}
 
+        <form onSubmit={handleSubmit}>
 
-          {message && (
-            <div
-              className={`login-message ${
-                message.toLowerCase().includes("success")
-                  ? "success"
-                  : "error"
-              }`}
-            >
-              {message}
-            </div>
-          )}
-
-
-          <form onSubmit={handleSubmit}>
-
-            {/* EMAIL */}
-            <div className="login-input-group">
-
+          <div className="login-field">
+            <label htmlFor="email">Email</label>
+            <div className="login-input-wrap">
               <MdEmail className="login-input-icon" />
-
               <input
+                id="email"
                 type="email"
                 name="email"
-                placeholder="Email Address"
+                placeholder="you@example.com"
                 value={form.email}
                 onChange={handleChange}
                 required
               />
-
             </div>
+          </div>
 
-
-            {/* PASSWORD */}
-            <div className="login-input-group">
-
+          <div className="login-field">
+            <div className="login-label-row">
+              <label htmlFor="password">Password</label>
+              <Link to="/forgot-password" className="login-forgot">
+                Forgot password?
+              </Link>
+            </div>
+            <div className="login-input-wrap">
               <FaLock className="login-input-icon" />
-
               <input
-                type={
-                  showPassword
-                    ? "text"
-                    : "password"
-                }
+                id="password"
+                type={showPassword ? "text" : "password"}
                 name="password"
-                placeholder="Password"
+                placeholder="Enter your password"
                 value={form.password}
                 onChange={handleChange}
                 required
               />
-
               <button
                 type="button"
-                className="login-eye-button"
-                onClick={() =>
-                  setShowPassword(!showPassword)
-                }
+                className="login-eye"
+                onClick={() => setShowPassword(!showPassword)}
               >
-                {showPassword ? (
-                  <FaEyeSlash />
-                ) : (
-                  <FaEye />
-                )}
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
               </button>
-
             </div>
+          </div>
 
+          <button
+            type="submit"
+            className="login-submit"
+            disabled={loading}
+          >
+            {loading ? "Signing in..." : "Sign in"}
+          </button>
 
-            {/* FORGOT PASSWORD */}
-            <div className="login-options">
+        </form>
 
-              <label className="remember-me">
-
-                <input
-                  type="checkbox"
-                />
-
-                <span>
-                  Remember me
-                </span>
-
-              </label>
-
-              <Link
-                to="/forgot-password"
-                className="forgot-password"
-              >
-                Forgot Password?
-              </Link>
-
-            </div>
-
-
-            {/* LOGIN BUTTON */}
-            <button
-              type="submit"
-              className="login-button"
-              disabled={loading}
-            >
-              {loading
-                ? "Logging in..."
-                : "Login"}
-            </button>
-
-          </form>
-
-
-          {/* REGISTER */}
-          <p className="login-register-text">
-
-            Don't have an account?
-
-            <Link to="/register">
-              Create Account
-            </Link>
-
-          </p>
-
-        </div>
+        <p className="login-footer">
+          Don't have an account?{" "}
+          <Link to="/register">Create one</Link>
+        </p>
 
       </div>
 
