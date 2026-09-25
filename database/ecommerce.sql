@@ -163,3 +163,25 @@ CREATE TABLE order_items (
     FOREIGN KEY (product_id)
         REFERENCES products(id)
 );
+
+-- =========================================
+-- ADMINS
+-- =========================================
+
+CREATE TABLE admins (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(150) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    role ENUM('admin', 'superadmin') DEFAULT 'admin',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+-- =========================================
+-- DEFAULT SUPER ADMIN & ADMIN
+-- =========================================
+
+INSERT INTO admins (name, email, password, role) VALUES
+('Super Admin', 'superadmin@bgadi.com', '$2b$10$jAqzC1sACrrykZsbdf6DfuTXW6hYLTx6.mNgZZVB5p1BS2eksUUR.', 'superadmin'),
+('Admin', 'admin@bgadi.com', '$2b$10$.TTQM1AuvHqksgrkNe45Zu5nxcXKHEhu1o0/nNofqxoiqBEkkU8Aq', 'admin');
