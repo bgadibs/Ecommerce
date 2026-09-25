@@ -82,6 +82,8 @@ function Wishlist() {
 
             await addToCart(productId, 1);
 
+            window.dispatchEvent(new Event("cartUpdated"));
+
             await removeFromWishlist(productId);
 
             await loadWishlist();

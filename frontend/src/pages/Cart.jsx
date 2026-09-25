@@ -153,6 +153,9 @@ function Cart() {
                 response
             );
 
+            // Update the navbar cart badge
+            window.dispatchEvent(new Event("cartUpdated"));
+
 
         } catch (error) {
 
@@ -196,6 +199,8 @@ function Cart() {
             await removeFromCart(
                 productId
             );
+
+            window.dispatchEvent(new Event("cartUpdated"));
 
             await loadCart();
 

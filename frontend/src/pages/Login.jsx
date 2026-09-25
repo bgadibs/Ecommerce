@@ -47,6 +47,9 @@ function Login() {
         localStorage.setItem("user", JSON.stringify(response.data.user));
       }
 
+      // Tell the navbar the user is now logged in
+      window.dispatchEvent(new Event("authChanged"));
+
       setMessage(response.data.message || "Login successful!");
 
       setTimeout(() => {
