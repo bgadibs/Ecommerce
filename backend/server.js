@@ -2,7 +2,12 @@ const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
 
+const setupAdmins = require("./setupAdmins");
+
 const app = express();
+
+// Create admins table and seed default accounts on startup
+setupAdmins();
 
 
 
