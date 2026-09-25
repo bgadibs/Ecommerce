@@ -41,7 +41,9 @@ app.use("/api/dashboard", dashboardRoutes);
 const PORT = process.env.PORT || 5000;
 const path = require("path");
 const frontendPath = path.join(__dirname, "..", "frontend", "dist");
-app.use(express.static(frontendPath));
+// redirect: false stops /products being redirected to /products/
+// (public/products holds the product images and shares the route's name)
+app.use(express.static(frontendPath, { redirect: false }));
 app.get("/{*splat}", (req, res) => {
   res.sendFile(path.join(frontendPath, "index.html"));
 });

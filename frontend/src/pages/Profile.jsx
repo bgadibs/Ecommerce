@@ -41,6 +41,7 @@ function Profile() {
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
+    window.dispatchEvent(new Event("authChanged"));
 
     navigate("/login");
   };
